@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ExternalLink from '@strapi/icons/ExternalLink';
@@ -43,7 +43,7 @@ const IconWrapper = styled(Box)`
   display: flex;
 `;
 
-export const Link = ({ href, to, children, disabled, startIcon, endIcon, ...props }) => {
+export const Link = forwardRef(({ href, to, children, disabled, startIcon, endIcon, ...props }, ref) => {
   const target = href ? '_blank' : undefined;
   const rel = href ? 'noreferrer noopener' : undefined;
 
@@ -55,6 +55,7 @@ export const Link = ({ href, to, children, disabled, startIcon, endIcon, ...prop
       to={disabled ? undefined : to}
       href={disabled ? '#' : href}
       disabled={disabled}
+      ref={ref}
       {...props}
     >
       {startIcon && (
@@ -77,7 +78,7 @@ export const Link = ({ href, to, children, disabled, startIcon, endIcon, ...prop
       )}
     </LinkWrapper>
   );
-};
+});
 
 Link.displayName = 'Link';
 

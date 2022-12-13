@@ -99,7 +99,7 @@ By passing `aria-disabled` hover styles on `MenuItem`s can be disabled.
     }}
   >
     <SimpleMenu label="Menu">
-      <MenuItem to="/">Home</MenuItem>
+      <MenuItem href="https://strapi.io/" isExternalLink>external</MenuItem>
       <MenuItem to="/somewhere">Somewhere internal</MenuItem>
     </SimpleMenu>
   </Story>
@@ -190,7 +190,7 @@ import { SimpleMenu, MenuItem } from '@strapi/design-system';
 import { NavLink as RouterNavLink } from 'react-router-dom';
 
 <SimpleMenu label={Label}>
-  <MenuItem as={RouterNavLink} to="/">
+  <MenuItem isLink as={RouterNavLink} to="/">
     Home
   </MenuItem>
 </SimpleMenu>;
@@ -205,9 +205,7 @@ import { SimpleMenu, MenuItem } from '@strapi/design-system';
 import NextLink from 'next/link';
 
 <SimpleMenu label={Label}>
-  <NextLink href="/home" passHref>
-    <MenuItem>Home</MenuItem>
-  </NextLink>
+  <MenuItem isLink as={NextLink} passHref>Home</MenuItem>
 </SimpleMenu>;
 ```
 
